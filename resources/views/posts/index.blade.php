@@ -38,7 +38,13 @@
                             <td>
                             <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default btn-sm">View</a>
                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm">Edit</a>
-                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                            <form method="POST" action="{{ route('posts.destroy', $post->id)}}">
+                                {{ method_field('DELETE') }}
+                                
+                                {{ csrf_field() }}
+
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                             </td>
                         </tr>
 
